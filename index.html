@@ -117,129 +117,6 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <section id="section1">
-        <h1>Gradient Descent for Linear Regression</h1>
-        <div class="image-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="Image of a scatter plot with a line of best fit running through it.">
-        </div>
-        <p>In the last lesson, we learned how Gradient Descent helps us find the minimum of a function. Now, let's apply it to a specific problem: <strong>linear regression</strong>. Remember, linear regression is about finding the best-fitting line (or hyperplane in higher dimensions) through our data.</p>
-        <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4>Linear Regression</h4>
-            <p>A machine learning model that predicts a continuous target variable based on a linear relationship with input features.</p>
-        </div>
-        <div class="continue-button" onclick="showNextSection(2)">Continue</div>
-    </section>
-
-    <section id="section2">
-        <h2>The Cost Function for Linear Regression</h2>
-        <p>To use Gradient Descent, we need a cost function to minimize. For linear regression, a common choice is the <strong>Mean Squared Error (MSE)</strong>. It measures the average squared difference between our predicted values and the actual values in our data. Lower MSE means a better fit!</p>
-        <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4>Mean Squared Error (MSE)</h4>
-            <p>A cost function that measures the average squared difference between predicted and actual values.</p>
-        </div>
-        <p>Mathematically, MSE is defined as:</p>
-        <p>\[ MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 \]</p>
-        <p>Where:</p>
-        <ul>
-            <li>\(n\) is the number of data points.</li>
-            <li>\(y_i\) is the actual value of the target variable for the i-th data point.</li>
-            <li>\(\hat{y}_i\) is the predicted value of the target variable for the i-th data point.</li>
-        </ul>
-        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
-    </section>
-
-    <section id="section3">
-        <h2>Calculating the Gradient</h2>
-        <p>Now for the crucial step: calculating the gradient of the MSE cost function. The gradient tells us how much each parameter (the slope and the y-intercept of our line) needs to change to minimize the error. Don't worry, we'll break down the math step-by-step!</p>
-        <div class="continue-button" onclick="showNextSection(4)">Continue</div>
-    </section>
-
-    <section id="section4">
-        <h2>Gradient Calculation: A Step-by-Step Guide</h2>
-        <p>Let's assume a simple linear regression model:</p>
-        <p>\[ \hat{y} = \beta_0 + \beta_1x \]</p>
-        <p>where:</p>
-        <ul>
-            <li>\(\hat{y}\) is the predicted value.</li>
-            <li>\(x\) is the input feature.</li>
-            <li>\(\beta_0\) is the y-intercept.</li>
-            <li>\(\beta_1\) is the slope.</li>
-        </ul>
-        <p>Our cost function (MSE) is:</p>
-        <p>\[ C(\beta_0, \beta_1) = \frac{1}{n} \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1x_i))^2 \]</p>
-        <p>To find the gradient, we need to calculate the partial derivatives of C with respect to \(\beta_0\) and \(\beta_1\):</p>
-        <p>\[ \frac{\partial C}{\partial \beta_0} = -\frac{2}{n} \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1x_i)) \]</p>
-        <p>\[ \frac{\partial C}{\partial \beta_1} = -\frac{2}{n} \sum_{i=1}^{n} x_i(y_i - (\beta_0 + \beta_1x_i)) \]</p>
-        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
-    </section>
-
-    <section id="section5">
-        <h2>Updating the Parameters</h2>
-        <p>Once we have the gradient, we update our parameters \(\beta_0\) and \(\beta_1\) using the familiar Gradient Descent update rule:</p>
-        <p>\[ \beta_0 := \beta_0 - \alpha \frac{\partial C}{\partial \beta_0} \]</p>
-        <p>\[ \beta_1 := \beta_1 - \alpha \frac{\partial C}{\partial \beta_1} \]</p>
-        <p>We repeat this process iteratively, gradually moving towards the minimum of the cost function and finding the best-fitting line.</p>
-        <div class="interactive-placeholder">
-            <img src="/placeholder.svg?height=300&width=600" alt="Interactive element: A chalkboard or whiteboard animation showing a step-by-step calculation of the gradient and parameter updates for a simple dataset with two or three points. Allow students to change the learning rate and see how it affects the updates.">
-        </div>
-        <div class="continue-button" onclick="showNextSection(6)">Continue</div>
-    </section>
-
-    <section id="section6">
-        <h2>Gradient Calculation: A Step-by-Step Guide</h2>
-        <p>Let's use a small dataset to illustrate the calculations. Suppose we have the following data points: (1, 2), (2, 4), (3, 5). We want to find the line of best fit using Gradient Descent.</p>
-        <p>Our goal is to find the values of \(\beta_0\) (y-intercept) and \(\beta_1\) (slope) that minimize the MSE for this data.</p>
-        <div class="continue-button" onclick="showNextSection(7)">Continue</div>
-    </section>
-
-    <section id="section7">
-        <h2>Defining the Model and Cost Function</h2>
-        <p>We'll use a simple linear regression model:</p>
-        <p>\[ \hat{y} = \beta_0 + \beta_1x \]</p>
-        <p>Our cost function (MSE) is:</p>
-        <p>\[ C(\beta_0, \beta_1) = \frac{1}{n} \sum_{i=1}^{n} (y_i - (\beta_0 + \beta_1x_i))^2 \]</p>
-        <p>Let's start with initial guesses for our parameters: \(\beta_0 = 0\) and \(\beta_1 = 1\). Our learning rate \(\alpha\) will be 0.01.</p>
-        <div class="continue-button" onclick="showNextSection(8)">Continue</div>
-    </section>
-
-    <section id="section8">
-        <h2>Calculating the Gradient for the First Iteration</h2>
-        <p>Let's calculate the gradient for the first iteration. We'll use our initial parameter values (\(\beta_0 = 0\), \(\beta_1 = 1\)) and our data points:</p>
-        <h3>Partial Derivative with respect to \(\beta_0\)</h3>
-        <p>For each data point, calculate \((y_i - (\beta_0 + \beta_1x_i))\), then sum these values and multiply by -2/n:</p>
-        <ul>
-            <li>(2 - (0 + 1*1)) = 1</li>
-            <li>(4 - (0 + 1*2)) = 2</li>
-            <li>(5 - (0 + 1*3)) = 2</li>
-        </ul>
-        <p>Sum: 1 + 2 + 2 = 5</p>
-        <p>\[ \frac{\partial C}{\partial \beta_0} = -\frac{2}{3} * 5 = -3.33 \]</p>
-        <div class="continue-button" onclick="showNextSection(9)">Continue</div>
-    </section>
-
-    <section id="section9">
-        <h3>Partial Derivative with respect to \(\beta_1\)</h3>
-        <p>For each data point, calculate \(x_i(y_i - (\beta_0 + \beta_1x_i))\), then sum these values and multiply by -2/n:</p>
-        <ul>
-            <li>1*(2 - (0 + 1*1)) = 1</li>
-            <li>2*(4 - (0 + 1*2)) = 4</li>
-            <li>3*(5 - (0 + 1*3)) = 6</li>
-        </ul>
-        <p>Sum: 1 + 4 + 6 = 11</p>
-        <p>\[ \frac{\partial C}{\partial \beta_1} = -\frac{2}{3} * 11 = -7.33 \]</p>
-        <div class="continue-button" onclick="showNextSection(10)">Continue</div>
-    </section>
-
-    <section id="section10">
-        <h3>Updating the Parameters</h3>
-        <p>Now, let's update \(\beta_0\) and \(\beta_1\) using the gradient descent update rule with \(\alpha = 0.01\):</p>
-        <p>\[ \beta_0 := \beta_0 - \alpha \frac{\partial C}{\partial \beta_0} = 0 - 0.01*(-3.33) = 0.033 \]</p>
-        <p>\[ \beta_1 := \beta_1 - \alpha \frac{\partial C}{\partial \beta_1} = 1 - 0.01*(-7.33) = 1.073 \]</p>
-        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
-    </section>
-
     <section id="section11">
         <h2>Putting it All Together</h2>
         <p>We've now seen how Gradient Descent can be used to find the optimal parameters for a linear regression model. By iteratively calculating the gradient of the MSE cost function and updating our parameters, we can find the line of best fit for our data.</p>
@@ -269,8 +146,8 @@
 
     <script>
         // Show the first section initially
-        document.getElementById("section1").style.display = "block";
-        document.getElementById("section1").style.opacity = "1";
+        document.getElementById("section11").style.display = "block";
+        document.getElementById("section11").style.opacity = "1";
 
         function showNextSection(nextSectionId) {
             const currentButton = event.target;
